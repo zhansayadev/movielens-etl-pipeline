@@ -1,7 +1,4 @@
-
-  dags/movielens_dag.py — Airflow оркестрирует всё по порядку
-  Копировать
-  from airflow import DAG
+from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import sys
@@ -52,4 +49,4 @@ with DAG(
     )
 
     extract >> validate >> transform_load
-  DAG — это граф задач. Airflow запускает их в правильном порядке: сначала extract, потом validate (проверяем что файлы скачались), только потом transform_and_load. Если какой-то шаг упал — следующий не запустится. Это и есть оркестрация.
+
